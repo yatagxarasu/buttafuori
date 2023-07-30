@@ -6,8 +6,8 @@ intents.members = True  # Abilita gli eventi dei membri
 # token bot
 TOKEN = ''
 
-#
-UTENTE_DI_ECCEZIONE_ID = ''
+
+UTENTE_ECCEZIONE_ID = ''
 
 client = discord.Client(intents=intents)
 
@@ -24,7 +24,7 @@ async def on_member_join(member):
     # Controlla se il nome dell'utente è "Mr Rip" o "rip" e se non è l'utente di eccezione
     if (
             member.name.lower() == 'mr rip' or member.name.lower() == 'rip' or member.name.lower() == 'mrrip') and str(
-            member.id) != UTENTE_DI_ECCEZIONE_ID:
+            member.id) != UTENTE_ECCEZIONE_ID:
         try:
             await member.kick(reason="Nome non permesso.")
             print(f"Utente {member.name} ({member.id}) espulso.")
